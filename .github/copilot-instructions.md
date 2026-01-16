@@ -139,7 +139,7 @@ Visual Studio Code debugger configuration in `.vscode/launch.json`.
 GitHub Actions are versioned using branch and tag names. Please ensure the
 version in the project's `package.json` is updated to reflect the changes made
 in the codebase. The version should follow
-<a href="https://semver.org/">Semantic Versioning</a> principles.
+[Semantic Versioning](https://semver.org/) principles.
 
 #### Release Process
 
