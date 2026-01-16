@@ -29,6 +29,10 @@ it is generated from.
 | `.prettierrc.yml`    | Prettier Formatter Configuration                         |
 | `.yaml-lint.yml`     | YAML Linter Configuration                                |
 | `action.yml`         | GitHub Action Metadata                                   |
+| `actionlint.yml`     | ActionLint Configuration                                 |
+| `.checkov.yml`       | Checkov Security Scanner Configuration                   |
+| `.gitattributes`     | Git Attributes Configuration                             |
+| `.prettierignore`    | Prettier Ignore Patterns                                 |
 | `CODEOWNERS`         | Code Owners File                                         |
 | `eslint.config.mjs`  | ESLint Configuration                                     |
 | `jest.config.js`     | Jest Configuration                                       |
@@ -36,6 +40,7 @@ it is generated from.
 | `package.json`       | NPM Package Configuration                                |
 | `README.md`          | Project Documentation                                    |
 | `rollup.config.ts`   | Rollup Bundler Configuration                             |
+| `script/`            | Helper Scripts (e.g., release script)                    |
 | `tsconfig.json`      | TypeScript Configuration                                 |
 
 ## Environment Setup
@@ -57,6 +62,26 @@ npm run test
 Unit tests should exist in the `__tests__` directory. They are powered by
 `jest`. Fixtures should be placed in the `__fixtures__` directory.
 
+## Linting and Formatting
+
+This project uses multiple linters and formatters to ensure code quality:
+
+- **Prettier** - Code formatting (run with `npm run format:write` to format, or
+  `npm run format:check` to check formatting)
+- **ESLint** - TypeScript/JavaScript linting (run with `npm run lint`)
+- **Super-linter** - Runs multiple linters including markdown, yaml, and
+  security checks (runs automatically in CI)
+- **ActionLint** - GitHub Actions workflow linting (configured in
+  `actionlint.yml`)
+
+To run all checks (format, lint, test, coverage, and bundle), use:
+
+```bash
+npm run all
+```
+
+This command is recommended before committing changes.
+
 ## Bundling
 
 Any time files in the `src` directory are changed, you should run the following
@@ -65,6 +90,22 @@ command to bundle the TypeScript code into JavaScript:
 ```bash
 npm run bundle
 ```
+
+This command will format the code and then package it using Rollup. The bundled
+JavaScript will be output to the `dist` directory.
+
+## Local Testing
+
+You can test the action locally without pushing to GitHub using the
+`@github/local-action` utility:
+
+```bash
+npm run local-action
+```
+
+This will run the action using the configuration in `.env` (copy `.env.example`
+to `.env` and customize as needed). You can also debug the action using the
+Visual Studio Code debugger configuration in `.vscode/launch.json`.
 
 ## General Coding Guidelines
 
@@ -99,6 +140,25 @@ GitHub Actions are versioned using branch and tag names. Please ensure the
 version in the project's `package.json` is updated to reflect the changes made
 in the codebase. The version should follow
 [Semantic Versioning](https://semver.org/) principles.
+
+#### Release Process
+
+This repository includes a helper script for creating releases:
+
+```bash
+./script/release
+```
+
+The release script will:
+
+1. Fetch the most recent release tag
+2. Prompt you for a new release tag (validates format)
+3. Tag the new release and sync major version tags (e.g., v1, v2)
+4. Auto-create `releases/v#` branches for previous major versions
+5. Push commits, tags, and branches to the remote repository
+
+After running the script, create a new release in GitHub to make the version
+available to users.
 
 ## Pull Request Guidelines
 
