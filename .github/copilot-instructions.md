@@ -69,7 +69,7 @@ This project uses multiple linters and formatters to ensure code quality:
 - **Prettier** - Code formatting (run with `npm run format:write` to format, or
   `npm run format:check` to check formatting)
 - **ESLint** - TypeScript/JavaScript linting (run with `npm run lint`)
-- **Super-linter** - Runs multiple linters including markdown, yaml, and
+- **Super-linter** - Runs multiple linters including Markdown, YAML, and
   security checks (runs automatically in CI)
 - **ActionLint** - GitHub Actions workflow linting (configured in
   `actionlint.yml`)
