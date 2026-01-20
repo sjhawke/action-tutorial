@@ -1,0 +1,8 @@
+---
+disable-telemetry: true
+exit-code: 1
+exit-on-eol: 2
+scan:
+  scanners:
+    - misconfig
+    - secret
