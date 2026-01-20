@@ -1,6 +1,6 @@
-name: The name of your action here
-description: Provide a description here
-author: Your name or organization here
+name: Learning as I go
+description: Learning GitHub Actions by creating one
+author: sjhawke - just me
 
 # Add your action's branding here. This will appear on the GitHub Marketplace.
 branding:
@@ -10,14 +10,14 @@ branding:
 # Define your inputs here.
 inputs:
   milliseconds:
-    description: Your input description here
+    description: Dummy wait time in milliseconds
     required: true
     default: '1000'
 
 # Define your outputs here.
 outputs:
   time:
-    description: Your output description here
+    description: Whatever it does
 
 runs:
   using: node24

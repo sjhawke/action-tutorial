@@ -69,7 +69,7 @@ This project uses multiple linters and formatters to ensure code quality:
 - **Prettier** - Code formatting (run with `npm run format:write` to format, or
   `npm run format:check` to check formatting)
 - **ESLint** - TypeScript/JavaScript linting (run with `npm run lint`)
-- **Super-linter** - Runs multiple linters including markdown, yaml, and
+- **Super-linter** - Runs multiple linters including Markdown, YAML, and
   security checks (runs automatically in CI)
 - **ActionLint** - GitHub Actions workflow linting (configured in
   `actionlint.yml`)
@@ -151,11 +151,11 @@ This repository includes a helper script for creating releases:
 
 The release script will:
 
-1. Fetch the most recent release tag
-2. Prompt you for a new release tag (validates format)
-3. Tag the new release and sync major version tags (e.g., v1, v2)
-4. Auto-create `releases/v#` branches for previous major versions
-5. Push commits, tags, and branches to the remote repository
+- Fetch the most recent release tag
+- Prompt you for a new release tag (validates format)
+- Tag the new release and sync major version tags (e.g., v1, v2)
+- Auto-create `releases/v#` branches for previous major versions
+- Push commits, tags, and branches to the remote repository
 
 After running the script, create a new release in GitHub to make the version
 available to users.
