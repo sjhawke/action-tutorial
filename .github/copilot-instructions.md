@@ -9,6 +9,45 @@ should not review any changes to the contents of the `dist` folder and it is
 expected that the JavaScript code in `dist` closely mirrors the TypeScript code
 it is generated from.
 
+> [!TIP]
+>
+> For more information on best practices for Copilot coding agent, see
+> [Best practices for using GitHub Copilot to work on tasks](https://docs.github.com/en/copilot/tutorials/coding-agent/get-the-best-results).
+
+## Boundaries and Constraints
+
+**DO NOT** modify or remove the following:
+
+- Files in the `dist/` directory (generated code - modify source in `src/`
+  instead)
+- Files in `node_modules/` (managed by npm)
+- Files in `.licenses/` (managed by the Licensed tool)
+- Configuration files unless specifically requested (e.g., `package.json`,
+  `tsconfig.json`, linter configs)
+- The `CODEOWNERS` file without explicit permission
+- Any secrets or sensitive information (never commit credentials, API keys, or
+  tokens)
+
+**ALWAYS** ensure:
+
+- Changes maintain backward compatibility unless explicitly breaking changes are
+  requested
+- Security best practices are followed
+- No hardcoded secrets or credentials are introduced
+
+## Acceptance Criteria
+
+All changes must meet the following criteria before completion:
+
+- [ ] Formatting checks pass (`npm run format:check`)
+- [ ] Linting checks pass (`npm run lint`)
+- [ ] Unit tests pass (`npm run test`)
+- [ ] Code coverage requirements are met
+- [ ] The action has been bundled (`npm run bundle`) and the `dist/` directory
+      is up-to-date
+- [ ] If functionality changes, the `README.md` is updated accordingly
+- [ ] No new security vulnerabilities are introduced
+
 ## Repository Structure
 
 | Path                 | Description                                              |
