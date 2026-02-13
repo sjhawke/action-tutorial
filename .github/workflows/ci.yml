@@ -37,7 +37,7 @@ jobs:
         run: pnpm install
       - name: Install Dependencies
         id: pnpm-ci
-        run: pnpm ci
+        run: pnpm install --frozen-lockfile
 
       - name: Check Format
         id: pnpm-format-check
