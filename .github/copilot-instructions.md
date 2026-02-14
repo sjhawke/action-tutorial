@@ -39,11 +39,11 @@ it is generated from.
 
 All changes must meet the following criteria before completion:
 
-- [ ] Formatting checks pass (`npm run format:check`)
-- [ ] Linting checks pass (`npm run lint`)
-- [ ] Unit tests pass (`npm run test`)
+- [ ] Formatting checks pass (`pnpm run format:check`)
+- [ ] Linting checks pass (`pnpm run lint`)
+- [ ] Unit tests pass (`pnpm run test`)
 - [ ] Code coverage requirements are met
-- [ ] The action has been bundled (`npm run bundle`) and the `dist/` directory
+- [ ] The action has been bundled (`pnpm run bundle`) and the `dist/` directory
       is up-to-date
 - [ ] If functionality changes, the `README.md` is updated accordingly
 - [ ] No new security vulnerabilities are introduced
@@ -76,7 +76,7 @@ All changes must meet the following criteria before completion:
 | `eslint.config.mjs`  | ESLint Configuration                                     |
 | `jest.config.js`     | Jest Configuration                                       |
 | `LICENSE`            | License File                                             |
-| `package.json`       | NPM Package Configuration                                |
+| `package.json`       | PNPM Package Configuration                               |
 | `README.md`          | Project Documentation                                    |
 | `rollup.config.ts`   | Rollup Bundler Configuration                             |
 | `script/`            | Helper Scripts (e.g., release script)                    |
@@ -87,7 +87,7 @@ All changes must meet the following criteria before completion:
 Install dependencies by running:
 
 ```bash
-npm install
+pnpm install
 ```
 
 ## Testing
@@ -95,7 +95,7 @@ npm install
 Ensure all unit tests pass by running:
 
 ```bash
-npm run test
+pnpm run test
 ```
 
 Unit tests should exist in the `__tests__` directory. They are powered by
@@ -105,9 +105,9 @@ Unit tests should exist in the `__tests__` directory. They are powered by
 
 This project uses multiple linters and formatters to ensure code quality:
 
-- **Prettier** - Code formatting (run with `npm run format:write` to format, or
-  `npm run format:check` to check formatting)
-- **ESLint** - TypeScript/JavaScript linting (run with `npm run lint`)
+- **Prettier** - Code formatting (run with `pnpm run format:write` to format, or
+  `nppm run format:check` to check formatting)
+- **ESLint** - TypeScript/JavaScript linting (run with `pnpm run lint`)
 - **Super-linter** - Runs multiple linters including Markdown, YAML, and
   security checks (runs automatically in CI)
 - **ActionLint** - GitHub Actions workflow linting (configured in
@@ -116,7 +116,7 @@ This project uses multiple linters and formatters to ensure code quality:
 To run all checks (format, lint, test, coverage, and bundle), use:
 
 ```bash
-npm run all
+pnpm run all
 ```
 
 This command is recommended before committing changes.
@@ -127,7 +127,7 @@ Any time files in the `src` directory are changed, you should run the following
 command to bundle the TypeScript code into JavaScript:
 
 ```bash
-npm run bundle
+pnpm run bundle
 ```
 
 This command will format the code and then package it using Rollup. The bundled
@@ -139,7 +139,7 @@ You can test the action locally without pushing to GitHub using the
 `@github/local-action` utility:
 
 ```bash
-npm run local-action
+pnpm run local-action
 ```
 
 This will run the action using the configuration in `.env` (copy `.env.example`
@@ -160,7 +160,7 @@ Visual Studio Code debugger configuration in `.vscode/launch.json`.
 - Keep functions focused and manageable
 - Use descriptive variable and function names that clearly convey their purpose
 - Use JSDoc comments to document functions, classes, and complex logic
-- After doing any refactoring, ensure to run `npm run test` to ensure that all
+- After doing any refactoring, ensure to run `pnpm run test` to ensure that all
   tests still pass and coverage requirements are met
 - When suggesting code changes, always opt for the most maintainable approach.
   Try your best to keep the code clean and follow "Don't Repeat Yourself" (DRY)
