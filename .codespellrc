@@ -1,0 +1,3 @@
+[codespell]
+# Ignore pnpm-lock.yaml as it contains package hashes that may look like typos
+skip = pnpm-lock.yaml
