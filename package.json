@@ -23,6 +23,7 @@
     "node": ">=24.0.0"
   },
   "scripts": {
+    "init": "pnpm install",
     "bundle": "pnpm run format:write && pnpm run package",
     "ci-test": "NODE_OPTIONS=--experimental-vm-modules NODE_NO_WARNINGS=1 pnpx jest",
     "coverage": "pnpx make-coverage-badge --output-path ./badges/coverage.svg",
@@ -33,7 +34,7 @@
     "package": "pnpm exec rimraf ./dist && pnpm exec rollup --config rollup.config.ts --configPlugin @rollup/plugin-typescript",
     "package:watch": "pnpm run package -- --watch",
     "test": "NODE_OPTIONS=--experimental-vm-modules NODE_NO_WARNINGS=1 pnpx jest",
-    "all": "pnpm run format:write && pnpm run lint && pnpm run test && pnpm run coverage && pnpm run package"
+    "all": "pnpm run init;pnpm run format:write && pnpm run lint && pnpm run test && pnpm run coverage && pnpm run package"
   },
   "license": "MIT",
   "dependencies": {
