@@ -24,15 +24,15 @@
   },
   "scripts": {
     "bundle": "pnpm run format:write && pnpm run package",
-    "ci-test": "NODE_OPTIONS=--experimental-vm-modules NODE_NO_WARNINGS=1 pnpx jest",
-    "coverage": "pnpx make-coverage-badge --output-path ./badges/coverage.svg",
-    "format:write": "pnpx prettier --write .",
-    "format:check": "pnpx prettier --check .",
-    "lint": "pnpx eslint .",
-    "local-action": "pnpx @github/local-action . src/main.ts .env",
+    "ci-test": "NODE_OPTIONS=--experimental-vm-modules NODE_NO_WARNINGS=1 pnpm exec jest",
+    "coverage": "pnpm exec make-coverage-badge --output-path ./badges/coverage.svg",
+    "format:write": "pnpm exec prettier --write .",
+    "format:check": "pnpm exec prettier --check .",
+    "lint": "pnpm exec eslint .",
+    "local-action": "pnpm exec @github/local-action . src/main.ts .env",
     "package": "pnpm exec rimraf ./dist && pnpm exec rollup --config rollup.config.ts --configPlugin @rollup/plugin-typescript",
     "package:watch": "pnpm run package -- --watch",
-    "test": "NODE_OPTIONS=--experimental-vm-modules NODE_NO_WARNINGS=1 pnpx jest",
+    "test": "NODE_OPTIONS=--experimental-vm-modules NODE_NO_WARNINGS=1 pnpm exec jest",
     "all": "pnpm run format:write && pnpm run lint && pnpm run test && pnpm run coverage && pnpm run package"
   },
   "license": "MIT",
@@ -69,7 +69,7 @@
     "ts-jest": "^29.4.9",
     "ts-jest-resolver": "^2.0.1",
     "tsx": "^4.21.0",
-    "typescript": "^5.9.3"
+    "typescript": "^6.0.3"
   },
   "optionalDependencies": {
     "@rollup/rollup-linux-x64-gnu": "*"
