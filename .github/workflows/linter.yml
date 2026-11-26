@@ -54,6 +54,7 @@ jobs:
           FILTER_REGEX_EXCLUDE: (dist/.*|pnpm-lock\.yaml)
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
           LINTER_RULES_PATH: .
+          TRIVY_CONFIG_FILE: .github/linters/trivy.yaml
           VALIDATE_ALL_CODEBASE: true
           VALIDATE_BIOME_FORMAT: false
           VALIDATE_BIOME_LINT: false
